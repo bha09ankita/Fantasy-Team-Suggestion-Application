@@ -1,0 +1,337 @@
+{% include "base.html" %} {% block style %}
+<style>
+  /* Styles start */
+
+  /* Navbar CSS starts*/
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  *::selection {
+    margin: 0px;
+    padding: 0px;
+    background-color: yellow;
+  }
+  #headder {
+    background-color: rgb(244, 66, 92);
+    position: fixed;
+    width: 100%;
+  }
+  #headder h1 {
+    display: inline-block;
+    margin-left: 0px;
+    margin-right: 500px;
+    padding: 10px;
+    font-family: "Pacifico", cursive;
+    color: white;
+  }
+  #headder ul {
+    display: inline-block;
+    float: right;
+  }
+  #headder ul li {
+    display: inline-block;
+    float: left;
+    list-style-type: none;
+    height: 36px;
+    color: white;
+    padding: 15px;
+    padding-top: 25px;
+    font-family: "Pacifico", cursive;
+  }
+  #headder ul li:hover {
+    background-color: white;
+    color: rgb(244, 66, 92);
+  }
+  #headder ul a {
+    text-decoration-style: none;
+  }
+  /* Navbar CSS ends*/
+
+  body {
+    background: linear-gradient(to right, #d74177, #ffe98a);
+    font-family: Helvetica;
+    text-align: center;
+    color: white;
+  }
+
+  /*.card {
+    box-sizing: border-box;
+    padding: 5px 5px 5px 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 10px #31c5d7;
+    transition: width 2s, background-color 1s, box-shadow 1s;
+    border-radius: 10px;
+    color: black;
+    padding-top: 500px;
+  }*/
+
+  .card:hover {
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .wrapper {
+    justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-right: 100px;
+    margin-top: 200px;
+  }
+  .wrapper_2 {
+    justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  #button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, #d74177, #ffe98a);
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+  }
+
+  #name {
+    font-size: 24px;
+  }
+
+  /* Button CSS Start */
+  button {
+    --color: #0077ff;
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    margin: 20px;
+    font-size: 17px;
+    z-index: 1;
+    color: var(--color);
+    border: 2px solid var(--color);
+    border-radius: 6px;
+    position: relative;
+  }
+
+  button::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  button:hover {
+    color: white;
+  }
+
+  button:before {
+    top: 100%;
+    left: 100%;
+    transition: 0.3s all;
+  }
+
+  button:hover::before {
+    top: -30px;
+    left: -30px;
+  }
+  /* Button CSS ends */
+
+  /* Dropdown css starts */
+  #team2 {
+    /*height: 30px;*/
+    /*border-radius: 3%;*/
+  }
+
+  select {
+    /* styling */
+    background-color: white;
+    border: thin solid blue;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+    /* reset */
+
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  /* arrows */
+
+  select.classic {
+    background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+      linear-gradient(135deg, blue 50%, transparent 50%),
+      linear-gradient(to right, skyblue, skyblue);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+  }
+
+  select.classic:focus {
+    background-image: linear-gradient(45deg, white 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, white 50%),
+      linear-gradient(to right, gray, gray);
+    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+    border-color: grey;
+    outline: 0;
+  }
+
+  select.round {
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      radial-gradient(#ddd 70%, transparent 72%);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px), calc(100% - 0.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+    background-repeat: no-repeat;
+  }
+
+  select.round:focus {
+    background-image: linear-gradient(45deg, white 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, white 50%),
+      radial-gradient(gray 70%, transparent 72%);
+    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+      calc(100% - 0.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+    background-repeat: no-repeat;
+    border-color: green;
+    outline: 0;
+  }
+
+  select.minimal {
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+  }
+
+  select.minimal:focus {
+    background-image: linear-gradient(45deg, green 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, green 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+      calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+    border-color: green;
+    outline: 0;
+  }
+
+  select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  /* Dropdown css ends */
+
+  /* Styles end */
+</style>
+{% endblock style %} {% block content %}
+<!-- navbar start -->
+{% include "navbar.html" %}
+<!-- navbar ends -->
+
+<!-- form starts from here -->
+<form action="{% url 'recommend' %}" method="post">
+  {% csrf_token %}
+
+  <div class="wrapper">
+    <!-- card 1 strarts -->
+    <div class="card">
+      <div id="container">
+        <h2>Select Team</h2>
+        <br />
+        <select name="team1" id="team1">
+          <option value="Chennai Super Kings">Chennai Super Kings (CSK)</option>
+          <option value="Delhi Capitals">Delhi Capitals (DC)</option>
+          <option value="Gujarat Titans">Gujarat Titans (GT)</option>
+          <option value="Kolkata Knight Riders">
+            Kolkata Knight Riders (KKR)
+          </option>
+          <option value="Lucknow Super Giants">
+            Lucknow Super Giants (LSG)
+          </option>
+          <option value="Mumbai Indians">Mumbai Indians (MI)</option>
+          <option value="Punjab Kings">Punjab Kings (PBKS)</option>
+          <option value="Rajasthan Royals">Rajasthan Royals (RR)</option>
+          <option value="Royal Challengers Bangalore">
+            Royal Challengers Bangalore (RCB)
+          </option>
+          <option value="Sunrisers Hyderabad">Sunrisers Hyderabad (SRH)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- card 1 ends -->
+
+  <!-- card 2 starts -->
+  <div class="wrapper_2">
+    <!-- card 1 strarts -->
+    <div class="card">
+      <div id="container">
+        <h2>Select Team</h2>
+        <br />
+        <select name="team2" id="team2">
+          <option value="Chennai Super Kings">Chennai Super Kings (CSK)</option>
+          <option value="Delhi Capitals">Delhi Capitals (DC)</option>
+          <option value="Gujarat Titans">Gujarat Titans (GT)</option>
+          <option value="Kolkata Knight Riders">
+            Kolkata Knight Riders (KKR)
+          </option>
+          <option value="Lucknow Super Giants">
+            Lucknow Super Giants (LSG)
+          </option>
+          <option value="Mumbai Indians">Mumbai Indians (MI)</option>
+          <option value="Punjab Kings">Punjab Kings (PBKS)</option>
+          <option value="Rajasthan Royals">Rajasthan Royals (RR)</option>
+          <option value="Royal Challengers Bangalore">
+            Royal Challengers Bangalore (RCB)
+          </option>
+          <option value="Sunrisers Hyderabad">Sunrisers Hyderabad (SRH)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- card 2 ends -->
+  <br />
+  {% for message in messages %}
+
+  <div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+  </div>
+
+  {% endfor %}
+
+  <!-- button starts here -->
+  <br />
+  <button type="submit" value="submit">submit</button>
+  <!-- button ends here -->
+</form>
+<!-- form ends here -->
+
+{% endblock content %}

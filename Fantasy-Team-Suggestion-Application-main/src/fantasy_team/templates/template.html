@@ -1,0 +1,166 @@
+{% include "base.html" %} {% block style %}
+<style>
+  /* Navbar CSS starts*/
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  *::selection {
+    margin: 0px;
+    padding: 0px;
+    background-color: yellow;
+  }
+  #headder {
+    background-color: rgb(244, 66, 92);
+    width: 100%;
+  }
+  #headder h1 {
+    display: inline-block;
+    margin-left: 0px;
+    margin-right: 500px;
+    padding: 10px;
+    font-family: "Pacifico", cursive;
+    color: white;
+  }
+  #headder ul {
+    display: inline-block;
+    float: right;
+  }
+  #headder ul li {
+    display: inline-block;
+    float: left;
+    list-style-type: none;
+    height: 36px;
+    color: white;
+    padding: 15px;
+    padding-top: 25px;
+    font-family: "Pacifico", cursive;
+  }
+  #headder ul li:hover {
+    background-color: white;
+    color: rgb(244, 66, 92);
+  }
+  #headder ul a {
+    text-decoration-style: none;
+  }
+  /* Navbar CSS ends*/
+
+  /* -----------------------------------------------------------------------------------------------*/
+  /* Background CSS starts */
+  body {
+    background: linear-gradient(to right, #d74177, #ffe98a);
+    font-family: Helvetica;
+    text-align: center;
+    color: white;
+  }
+
+  /*.card {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 10px #31c5d7;
+    transition: width 2s, background-color 1s, box-shadow 1s;
+    border-radius: 10px;
+    color: black;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .wrapper {
+    justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 170px;
+    margin-top: 100px;
+  }
+  .wrapper_2 {
+    justify-content: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  .container {
+    margin-top: 50px;
+    width: 1600px;
+  }
+  /* Background CSS ends*/
+  /* -----------------------------------------------------------------------------------------------*/
+  /* Table CSS starts */
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+  .styled-table {
+    margin-left: 500px;
+    margin-top: 100px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: black;
+    font-weight: 600;
+  }
+  .styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+  }
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+  }
+  .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  .styled-table tbody tr.active-row {
+    font-weight: 900;
+    color: #009879;
+  }
+  .styled-table {
+    margin-left: 550px;
+    margin-top: 100px;
+  }
+  /* Table CSS ends*/
+</style>
+{% endblock style %} {% block content %}
+
+<!-- navbar start -->
+{% include "navbar.html" %}
+
+<div class="wrapper">
+  <div class="card">
+    <div class="container">
+      <table class="styled-table">
+        <tr class="active-row">
+          <th>Player Name</th>
+          <th>Team Name</th>
+          <th>Fantasy Points</th>
+        </tr>
+        {% for player in players %}
+        <tr>
+          <td>{{player.players}}</td>
+          <td>{{player.team_name}}</td>
+          <td>{{player.fantasy_points}}</td>
+          <!-- <td>{{player.Name}}</td>
+    <td>{{player.TeamName}}</td>
+    <td>{{player.FantasyPoints}}</td> -->
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
